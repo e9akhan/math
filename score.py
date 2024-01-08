@@ -16,7 +16,9 @@ def score():
         path = os.path.join(folder, "solution.py")
 
         if "math" in path:
+            print("Answer for " + path)
             os.system("python3 " + path)
+            print()
 
 
 if __name__ == "__main__":
