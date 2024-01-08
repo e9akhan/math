@@ -1,6 +1,6 @@
 """
     Module name :- solution
-    Method(s) :- solver(a, b), answer()
+    Method(s) :- solver(a, b), answer(), factor_sum(nm)
 """
 
 
@@ -52,12 +52,12 @@ def solver(a: int, b: int = None):
 
         sum1 = factor_sum(number)
 
-        if sum1 < number:
+        if sum1 <= number:
             continue
 
         sum2 = factor_sum(sum1)
 
-        if sum2 == number and sum1 != number:
+        if sum2 == number:
             amicable_numbers += [number, sum1]
 
     return sum(amicable_numbers)
