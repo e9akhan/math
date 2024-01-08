@@ -51,3 +51,4 @@ def answer():
 
 if __name__ == "__main__":
     print(f"solver(value=851239123) = {solver(value=851239123)}")
+    print(f"answer() = {answer()}")

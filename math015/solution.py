@@ -38,3 +38,4 @@ def answer():
 
 if __name__ == "__main__":
     print(f"solver(3, 3) = {solver(3, 3)}")
+    print(f"answer() = {answer()}")

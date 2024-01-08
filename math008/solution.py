@@ -86,3 +86,4 @@ def answer():
 
 if __name__ == "__main__":
     print(f"solver('NUMSTR', 12) = {solver(NUMSTR, 12)}")
+    print(f"answer() = {answer()}")

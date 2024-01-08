@@ -50,3 +50,4 @@ def answer():
 
 if __name__ == "__main__":
     print(f"solver(15) = {solver(15)}")
+    print(f"answer() = {answer()}")

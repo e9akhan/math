@@ -40,3 +40,4 @@ if __name__ == "__main__":
     print(
         f"solver([2, 3, 5, 7, 11], 34567, 1234567) = {solver([2, 3, 5, 7, 11], 34567, 1234567)}"
     )
+    print(f"answer() = {answer()}")

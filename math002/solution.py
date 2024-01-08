@@ -89,3 +89,4 @@ if __name__ == "__main__":
             start=15812, end=91581312, even=False, odd=True
         )}"""
     )
+    print(f"answer() = {answer()}")

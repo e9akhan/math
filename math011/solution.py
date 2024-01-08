@@ -178,3 +178,4 @@ def solver(numgrid, n: int):
 
 if __name__ == "__main__":
     print(f"solver(NUMGRID, 4) = {solver(NUMGRID, 4)}")
+    print(f"answer() = {answer()}")

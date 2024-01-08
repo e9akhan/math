@@ -82,3 +82,4 @@ if __name__ == "__main__":
 """
 
     print(f"solver(NUM) = {solver(NUM)}")
+    print(f"answer() = {answer()}")

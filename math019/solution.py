@@ -116,3 +116,4 @@ if __name__ == "__main__":
         solver(current_date, future_date, "MONDAY") = {solver(current_date, future_date, "MONDAY")}
     """
     )
+    print(f"answer() = {answer()}")

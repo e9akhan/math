@@ -61,3 +61,4 @@ def answer():
 
 if __name__ == "__main__":
     print(f"solver(12) = {solver(12)}")
+    print(f"answer() = {answer()}")

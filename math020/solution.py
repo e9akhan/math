@@ -47,3 +47,4 @@ def answer():
 
 if __name__ == "__main__":
     print(f"solver(10) = {solver(10)}")
+    print(f"answer() = {answer()}")

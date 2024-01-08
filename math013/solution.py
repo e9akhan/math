@@ -149,3 +149,4 @@ if __name__ == "__main__":
     789
 """
     print(f"solver(NUMGRID, 3) = {solver(NUMGRID, 3)}")
+    print(f"answer() = {answer()}")
