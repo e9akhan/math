@@ -44,21 +44,18 @@ def solver(a: int, b: int = None):
     if start > end:
         return 0
 
-    amicable_numbers = []
+    number_and_factor_sum = {}
 
     for number in range(start, end + 1):
-        if number in amicable_numbers:
-            continue
+        sum_factors = factor_sum(number)
+        if sum_factors not in (1, number):
+            number_and_factor_sum.update({number: sum_factors})
 
-        sum1 = factor_sum(number)
-
-        if sum1 <= number:
-            continue
-
-        sum2 = factor_sum(sum1)
-
-        if sum2 == number:
-            amicable_numbers += [number, sum1]
+    amicable_numbers = [
+        key
+        for key, value in number_and_factor_sum.items()
+        if value in number_and_factor_sum and number_and_factor_sum[value] == key
+    ]
 
     return sum(amicable_numbers)
 
