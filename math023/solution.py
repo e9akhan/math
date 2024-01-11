@@ -1,75 +1,98 @@
 """
     Module name :- solution
-    Method(s) :- get_factor_sum(number), solver(p, q), answer()
+    Method(s) :- is_abundant(num), solver(n, p, q),
+    find_sum_n_abundant_numbers(
+        abundant_numbers,
+        n, n_abundant_sum=0,
+        n_abundant_sum_list=[]
+    ), answer()
 """
 
 
-def get_factor_sum(number: int):
+def is_abundant(num):
     """
-    Find the sum of factors of given number.
+    Check whether the given num is abundant number
+    or not.
 
     Args:-
-        number(int):- Number.
-
-    Return
-        Sum of factors of given number.
+        num(int) :- Number
     """
     factor_sum = 1
-
-    for i in range(2, int(number**0.5) + 1):
-        if number % i == 0:
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
             factor_sum += i
-            factor_sum += number // i
+            factor_sum += num // i
 
-    return factor_sum
+    return factor_sum > num
 
 
-def solver(p: int, q: int = None):
+def find_sum_n_abundant_numbers(
+    abundant_numbers, n, n_abundant_sum=0, n_abundant_sum_list=[]
+):
     """
-    Find the sum of all non-abundant numbers.
+    Find the n abundant_numbers in given list.
 
     Args:-
+        abundant_numbers(list) :- List of abundant numbers.
+        n(int) :-  Number of abundant numbers to sum.
+
+    Return
+        List containing sum of combinations of n abundant
+        numbers of given list.
+    """
+    if n == 0:
+        n_abundant_sum_list.append(n_abundant_sum)
+        return 0
+
+    for num in abundant_numbers:
+        find_sum_n_abundant_numbers(abundant_numbers, n - 1, n_abundant_sum + num)
+
+    return n_abundant_sum_list
+
+
+def solver(n: int, p: int, q: int = None):
+    """
+    Find the sum of all positive integers which cannot be
+    written as the sum of n abundant numbers where all the
+    abundant numbers lie within the range p and q.
+
+    Args:-
+        n(int):- Numbers of abundant numbers to sum.
         p(int) :- Starting or ending point of range.
         q(int) :- Ending point of range.
 
     Return
-        Sum of all non-abundant numbers over given range.
+        Sum of all positive integers which cannot be
+        written as the sum of n abundant numbers where all the
+        abundant numbers lie within the range p and q.
     """
-    start = 1
-    end = p or q
+    start, end = 1, p or q
 
     if p and q:
-        start = p
-        end = q
+        start, end = p, q
 
     if start > end:
         return 0
 
-    abundant_numbers = [number for number in range()]
-    all_numbers = list(range(start, end + 1))
+    numbers = list(range(start, end + 1))
+    abundant_numbers = [num for num in numbers if is_abundant(num)]
+    sum_n_abundant_numbers = set(find_sum_n_abundant_numbers(abundant_numbers, n))
 
-    for number in :
-
-        if number < get_factor_sum(number):
-            abundant_numbers.append(number)
-
-    non_abundant_numbers = [number for number in range(start, end+1) if number not in abundant_numbers]
-
-    sum_non_abundant_numbers = [i+j for i in non_abundant_numbers for j in non_abundant_numbers]
-
-    return sum(sum_non_abundant_numbers)
+    return sum(set(numbers) - sum_n_abundant_numbers)
 
 
 def answer():
     """
-    Find the sum of all non-abundant numbers.
+    Find the sum of all positive integers which cannot be
+    written as the sum of 2 abundant numbers.
 
     Return
-        Sum of all non-abundant numbers.
+        Sum of all positive integers which cannot be
+        written as the sum of 2 abundant numbers.
     """
-    return solver(28123)
+    return solver(2, 28123)
 
 
 if __name__ == "__main__":
-    print(f"solver(1, 1000) = {solver(1, 1000)}")
-    print(f"answer() = {answer()}")
+    print(solver(2, 28123))
+    print(answer())
