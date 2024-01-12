@@ -1,10 +1,10 @@
 """
     Module name :- solution
-    Method(s) :- fibonacci(), solver(n), answer()
+    Method(s) :- fibonacci(num1, num2), solver(n), answer()
 """
 
 
-def fibonacci(num1, num2):
+def fibonacci(num1: int, num2: int):
     """
     Generates a fibonacci number one at a time.
 
