@@ -44,14 +44,13 @@ def find_recurrence_number(number_recurrence, num):
     Return
         Number which has num in recurrence part.
     """
-    num = sorted(str(num[0]))
-    number = 0
+    num = "".join(sorted(str(num[0])))
 
     for number, recurrence in number_recurrence.items():
-        if num in sorted(recurrence):
-            break
+        if num in "".join(sorted(recurrence)):
+            return number
 
-    return number
+    return 0
 
 
 def solver(p: int, num: list = None):
@@ -68,7 +67,7 @@ def solver(p: int, num: list = None):
     number_recurrence = {i: recurrence_part(i) for i in range(1, p)}
 
     if num:
-        find_recurrence_number(number_recurrence, num)
+        return find_recurrence_number(number_recurrence, num)
     return sorted(
         number_recurrence,
         key=lambda recur: len(number_recurrence.get(recur)),
