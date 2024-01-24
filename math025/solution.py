@@ -1,15 +1,15 @@
 """
     Module name :- solution
-    Method(s) :- fibonacci(), solver(n), answer()
+    Method(s) :- fibonacci(num1, num2), solver(n), answer()
 """
 
 
-def fibonacci(num1, num2):
+def add_numbers(num1: int, num2: int):
     """
-    Generates a fibonacci number one at a time.
+    Add two numbers.
 
     Return
-        Fibonacci number.
+        Added number and num1.
     """
     len_num1, len_num2 = len(num1), len(num2)
     j = -1
