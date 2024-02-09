@@ -3,6 +3,7 @@
     Method(s) :- get_name_sum(name), solver(filename), answer()
 """
 
+
 def get_name_sum(name):
     """
     Find the sum of values of alphabets in name.
@@ -82,7 +83,7 @@ def answer():
     Return
         Sum of product of value and index of names in 'names.txt'.
     """
-    return solver("names.txt")
+    return solver("math022/names.txt")
 
 
 if __name__ == "__main__":

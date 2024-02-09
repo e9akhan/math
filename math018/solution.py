@@ -3,7 +3,6 @@
     Method(s) :- backtrack(matrix, x, y), solver(num), answer()
 """
 
-
 NUM = """
 75
 95 64

@@ -62,3 +62,7 @@ def answer():
     common terms, find the value of the denominator.
     """
     return solver()
+
+
+if __name__ == '__main__':
+    print(f'answer()={answer()}')

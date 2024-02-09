@@ -45,7 +45,7 @@ def solver(n: int):
     index = 2
 
     while len(num1) < n:
-        num1, num2 = fibonacci(num1, num2)
+        num1, num2 = add_numbers(num1, num2)
         index += 1
 
     return index

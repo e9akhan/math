@@ -5,14 +5,17 @@
 
 def is_prime(num):
     """
-        Check primeness of number.
+    Check primeness of number.
     """
-    return True if all(num%i for i in range(2, int(num**0.5)+1)) else False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
 
 
 def solver(a: int = None, b: int = None):
     """
-        Find circular prime numbers from a to b.
+    Find circular prime numbers from a to b.
     """
     start, end = 2, a or b
 
@@ -21,7 +24,7 @@ def solver(a: int = None, b: int = None):
 
     count = 0
 
-    for num in range(start,end+1):
+    for num in range(start, end + 1):
         num_str = str(num)
 
         for _ in range(len(num_str)):
@@ -36,11 +39,11 @@ def solver(a: int = None, b: int = None):
 
 def answer():
     """
-        Find circular prime numbers upto 10000000.
+    Find circular prime numbers upto 10000000.
     """
     return solver(10000000)
 
 
-if __name__ == '__main__':
-    print(f'solver(197, 197) = {solver(197, 197)}')
-    print(f'answer() = {answer()}')
+if __name__ == "__main__":
+    print(f"solver(197, 197) = {solver(197, 197)}")
+    print(f"answer() = {answer()}")
