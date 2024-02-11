@@ -27,11 +27,14 @@ def answer():
     num_str = ""
 
     for prime in primes:
-        small = prime - 3330
-        large = prime + 3330
+        if prime > 3500:
+            break
 
-        if small in primes and large in primes:
-            num_str = str(small) + str(prime) + str(large)
+        mid = prime + 3330
+        large = mid + 3330
+
+        if mid in primes and large in primes:
+            num_str = str(prime) + str(mid) + str(large)
             break
 
     return num_str
