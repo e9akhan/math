@@ -64,5 +64,5 @@ def answer():
     return solver()
 
 
-if __name__ == '__main__':
-    print(f'answer()={answer()}')
+if __name__ == "__main__":
+    print(f"answer()={answer()}")

@@ -2,19 +2,22 @@
     Math 25.
 """
 
+
 def solver():
     """
-        Solver Mtd.
+    Solver Mtd.
     """
     pentagonal_number_list = []
     pent_dict = {}
     for i in range(1, 2400):
-        pentagonal_number = i * (3*i - 1)//2
+        pentagonal_number = i * (3 * i - 1) // 2
         pentagonal_number_list.append(pentagonal_number)
 
         j = 0
 
-        while (pentagonal_number - pentagonal_number_list[j]) > (pentagonal_number // 2):
+        while (pentagonal_number - pentagonal_number_list[j]) > (
+            pentagonal_number // 2
+        ):
             num1 = pentagonal_number_list[j]
             num2 = pentagonal_number - num1
 
@@ -34,12 +37,13 @@ def solver():
 
     return pent_dict[key]
 
+
 def answer():
     """
-        Answer mtd.
+    Answer mtd.
     """
     return solver()
 
 
-if __name__ == '__main__':
-    print(f'answer()={answer()}')
+if __name__ == "__main__":
+    print(f"answer()={answer()}")
