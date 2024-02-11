@@ -18,20 +18,19 @@ def rounding(number, left=True):
     """
     Check truncable primeness.
     """
-    count = 1
-    temp = str(number)[::-1]
+    temp = str(number)
 
-    if left:
-        number = int(temp)
-    number //= 10
+    if not left:
+        temp = temp[::-1]
+    number = temp[1:]
 
-    while number > 0 and is_prime(number):
-        count += 1
-        number //= 10
+    for i in range(len(number)):
+        num_int = int(number[i:])
 
-    if count == len(temp):
-        return True
-    return False
+        if not is_prime(num_int):
+            return False
+
+    return True
 
 
 def solver(n):
