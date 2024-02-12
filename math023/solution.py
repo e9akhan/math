@@ -27,7 +27,10 @@ def is_abundant(num):
 
 
 def find_sum_n_abundant_numbers(
-    abundant_numbers, n, n_abundant_sum=0, n_abundant_sum_list=[]
+    abundant_numbers,
+    n,
+    n_abundant_sum_list,
+    n_abundant_sum=0,
 ):
     """
     Find the n abundant_numbers in given list.
@@ -42,10 +45,12 @@ def find_sum_n_abundant_numbers(
     """
     if n == 0:
         n_abundant_sum_list.append(n_abundant_sum)
-        return 0
+        return n_abundant_sum_list
 
     for num in abundant_numbers:
-        find_sum_n_abundant_numbers(abundant_numbers, n - 1, n_abundant_sum + num)
+        n_abundant_sum_list = find_sum_n_abundant_numbers(
+            abundant_numbers, n - 1, n_abundant_sum_list, n_abundant_sum + num
+        )
 
     return n_abundant_sum_list
 
@@ -76,7 +81,7 @@ def solver(n: int, p: int, q: int = None):
 
     numbers = list(range(start, end + 1))
     abundant_numbers = [num for num in numbers if is_abundant(num)]
-    sum_n_abundant_numbers = set(find_sum_n_abundant_numbers(abundant_numbers, n))
+    sum_n_abundant_numbers = set(find_sum_n_abundant_numbers(abundant_numbers, n, []))
 
     return sum(set(numbers) - sum_n_abundant_numbers)
 
@@ -94,5 +99,5 @@ def answer():
 
 
 if __name__ == "__main__":
-    print(solver(2, 28123))
-    print(answer())
+    print(f"solver(2, 28123)={solver(2, 28123)}")
+    print(f"answer()={answer()}")

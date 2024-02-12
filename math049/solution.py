@@ -41,4 +41,4 @@ def answer():
 
 
 if __name__ == "__main__":
-    print(answer())
+    print(f"answer()={answer()}")
