@@ -73,12 +73,5 @@ def solver(num):
 
 
 if __name__ == "__main__":
-    NUM = """
-3
-7 4
-2 4 6
-8 5 9 3
-"""
-
     print(f"solver(NUM) = {solver(NUM)}")
     print(f"answer() = {answer()}")

@@ -29,7 +29,7 @@ def solver(n):
         if carry:
             product = str(carry) + product
 
-    return product
+    return sum(int(digit) for digit in product)
 
 
 def answer():

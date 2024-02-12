@@ -41,9 +41,9 @@ def solver(n, p=None, q=None):
 
 def answer():
     """
-    Finding the largest palindrome of a product of 2 digit numbers.
+    Finding the largest palindrome of a product of 3 digit numbers.
     """
-    return solver(2)
+    return solver(3)
 
 
 if __name__ == "__main__":

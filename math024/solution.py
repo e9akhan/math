@@ -41,7 +41,6 @@ def remainder_and_count(remainder, n):
     while remainder > fact_n:
         remainder -= fact_n
         count += 1
-    # print(count)
 
     return remainder, count
 
