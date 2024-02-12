@@ -37,7 +37,7 @@ def solver(n):
     max_pandigital_prime = 0
     for i in range(1, n + 1):
         pandigital = [str(j) for j in range(1, i + 1)]
-        combination_list = combinations(pandigital, 0, [])
+        combination_list = sorted(combinations(pandigital, 0, []))
 
         for combination in combination_list:
             number = int(combination)
