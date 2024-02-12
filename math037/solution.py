@@ -8,28 +8,31 @@ def is_prime(number):
     """
     Check for primeness of number.
     """
+    if number < 2:
+        return False
+
     for i in range(2, int(number**0.5) + 1):
         if number % i == 0:
             return False
     return True
 
 
-def rounding(number, left=True):
+def rounding(number):
     """
     Check truncable primeness.
     """
     temp = str(number)
 
-    if not left:
-        temp = temp[::-1]
-    number = temp[1:]
+    truncatable_prime = []
+    for i in range(1, len(temp)):
+        numl = temp[i:]
+        numr = temp[:-i]
 
-    for i in range(len(number)):
-        num_int = int(number[i:])
+        truncatable_prime.append(is_prime(int(numl)))
+        truncatable_prime.append(is_prime(int(numr)))
 
-        if not is_prime(num_int):
-            return False
-
+    if False in truncatable_prime:
+        return False
     return True
 
 
@@ -39,13 +42,13 @@ def solver(n):
     """
     cyclic_primes = []
 
-    number = 10
+    number = 23
     while len(cyclic_primes) < n:
         if not is_prime(number):
             number += 1
             continue
 
-        if rounding(number) and rounding(number, left=False):
+        if rounding(number):
             cyclic_primes.append(number)
 
         number += 1

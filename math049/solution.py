@@ -17,6 +17,22 @@ def is_prime(num):
     return True
 
 
+def permutations(num, index, perm_list):
+    """
+    Find permutations.
+    """
+    if index == len(num) - 1:
+        perm_list.append(int("".join(num)))
+        return perm_list
+
+    for i in range(len(num)):
+        num_list = list(num)
+        num_list[i], num_list[index] = num_list[index], num_list[i]
+        perm_list = permutations(num_list, index + 1, perm_list)
+
+    return perm_list
+
+
 def answer():
     """
     answer().
@@ -30,10 +46,17 @@ def answer():
         if prime > 3500:
             break
 
+        perm_list = permutations(str(prime), 0, [])
+
         mid = prime + 3330
         large = mid + 3330
 
-        if mid in primes and large in primes:
+        if (
+            mid in primes
+            and large in primes
+            and mid in perm_list
+            and large in perm_list
+        ):
             num_str = str(prime) + str(mid) + str(large)
             break
 

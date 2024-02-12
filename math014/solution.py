@@ -27,7 +27,8 @@ def find_collatz(start, end):
             if number in collatz:
                 count += collatz[number]
                 break
-            elif number % 2 == 0:
+
+            if number % 2 == 0:
                 number //= 2
                 count += 1
             else:

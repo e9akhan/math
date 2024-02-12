@@ -8,23 +8,16 @@ def solver():
     """
     solver()
     """
-    num1, num2, num3 = 286, 166, 144
-    tri_num = 40755
-    pent_num_list = hex_num_list = []
+    pen_num_list = [(i * (3 * i - 1) // 2) for i in range(166, 100000)]
 
-    while not (tri_num in pent_num_list and tri_num in hex_num_list):
-        tri_num = num1 * (num1 + 1) // 2
-        pent_num = num2 * (3 * num2 - 1) // 2
-        hex_num = num3 * (2 * num3 - 1)
+    hex_num = 0
+    for i in range(144, 100000):
+        hex_num = i * (2 * i - 1)
 
-        pent_num_list.append(pent_num)
-        hex_num_list.append(hex_num)
+        if hex_num in pen_num_list:
+            break
 
-        num1 += 1
-        num2 += 1
-        num3 += 1
-
-    return tri_num
+    return hex_num
 
 
 def answer():

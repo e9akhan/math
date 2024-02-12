@@ -19,12 +19,12 @@ def combinations(amt, coins):
     if coin == 1:
         return count + 1
 
-    itr = amt / coin
+    itr = amt // coin
 
     while itr >= 0:
         rem = amt - itr * coin
 
-        if amt == 0:
+        if rem == 0:
             count += 1
         else:
             count += combinations(rem, coins[1:])

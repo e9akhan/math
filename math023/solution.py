@@ -1,11 +1,6 @@
 """
     Module name :- solution
-    Method(s) :- is_abundant(num), solver(n, p, q),
-    find_sum_n_abundant_numbers(
-        abundant_numbers,
-        n, n_abundant_sum=0,
-        n_abundant_sum_list=[]
-    ), answer()
+    Method(s) :- is_abundant(num), solver(n, p, q), answer()
 """
 
 
@@ -18,44 +13,14 @@ def is_abundant(num):
         num(int) :- Number
     """
     factor_sum = 1
-    for i in range(2, int(num**0.5) + 1):
+    for i in range(2, num // 2 + 1):
         if num % i == 0:
             factor_sum += i
-            factor_sum += num // i
 
     return factor_sum > num
 
 
-def find_sum_n_abundant_numbers(
-    abundant_numbers,
-    n,
-    n_abundant_sum_list,
-    n_abundant_sum=0,
-):
-    """
-    Find the n abundant_numbers in given list.
-
-    Args:-
-        abundant_numbers(list) :- List of abundant numbers.
-        n(int) :-  Number of abundant numbers to sum.
-
-    Return
-        List containing sum of combinations of n abundant
-        numbers of given list.
-    """
-    if n == 0:
-        n_abundant_sum_list.append(n_abundant_sum)
-        return n_abundant_sum_list
-
-    for num in abundant_numbers:
-        n_abundant_sum_list = find_sum_n_abundant_numbers(
-            abundant_numbers, n - 1, n_abundant_sum_list, n_abundant_sum + num
-        )
-
-    return n_abundant_sum_list
-
-
-def solver(n: int, p: int, q: int = None):
+def solver(p: int, q: int = None):
     """
     Find the sum of all positive integers which cannot be
     written as the sum of n abundant numbers where all the
@@ -81,9 +46,13 @@ def solver(n: int, p: int, q: int = None):
 
     numbers = list(range(start, end + 1))
     abundant_numbers = [num for num in numbers if is_abundant(num)]
-    sum_n_abundant_numbers = set(find_sum_n_abundant_numbers(abundant_numbers, n, []))
+    sum_n_abundant_numbers = [
+        abundant_numbers[i] + abundant_numbers[j]
+        for i in range(len(abundant_numbers))
+        for j in range(i, len(abundant_numbers))
+    ]
 
-    return sum(set(numbers) - sum_n_abundant_numbers)
+    return sum(set(numbers) - set(sum_n_abundant_numbers))
 
 
 def answer():
@@ -95,7 +64,7 @@ def answer():
         Sum of all positive integers which cannot be
         written as the sum of 2 abundant numbers.
     """
-    return solver(2, 28123)
+    return solver(1, 28123)
 
 
 if __name__ == "__main__":
