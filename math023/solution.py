@@ -99,5 +99,4 @@ def answer():
 
 
 if __name__ == "__main__":
-    print(f"solver(2, 28123)={solver(2, 28123)}")
     print(f"answer()={answer()}")
