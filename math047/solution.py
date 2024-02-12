@@ -15,9 +15,6 @@ def find_consecutive_numbers_with_distinct_prime(num, n, prime_list):
     for number in range(num, num + n):
         used_prime_number = []
         for prime in prime_list:
-            if prime in used_prime_number:
-                continue
-
             if number % prime == 0:
                 used_prime_number.append(prime)
 
