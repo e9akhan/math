@@ -9,6 +9,9 @@ def find_consecutive_numbers_with_distinct_prime(num, n, prime_list):
     Check whether the number and its n consective has n
     distinct prime factors
     """
+    if num in prime_list:
+        return False
+
     for number in range(num, num + n):
         used_prime_number = []
         for prime in prime_list:
