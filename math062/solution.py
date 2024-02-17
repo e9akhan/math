@@ -1,13 +1,15 @@
+"""
+    Module name :- Math 62
+"""
+
 def find_permutations(number, idx, permutation_list):
     if idx == len(number) - 1:
         num = int("".join(number))
 
-        if num == 41063625 or num == 56623104 or num==66430125:
-            print('yes')
         if len(str(num)) == len(number):
-            permutation_list.append(num)
+            permutation_list.add(num)
         return permutation_list
-    
+
     for i in range(idx, len(number)):
         num_list = list(number)
         num_list[idx], num_list[i] = num_list[i], num_list[idx]
@@ -17,31 +19,38 @@ def find_permutations(number, idx, permutation_list):
 
 
 def solver(n):
+    all_permutations = []
     number = 1
     while True:
         cube = number ** 3
         print(number)
 
-        permutations = find_permutations(str(cube), 0, [])
+        if cube in all_permutations:
+            number += 1
+            continue
+
+        permutations = list(find_permutations(str(cube), 0, set()))
 
         count = 0
         for permutation in permutations:
-            val = permutation ** (1/3)
+            val = round(permutation ** (1/3), 12)
             if val == int(val):
                 count += 1
 
         if count == n:
             break
 
+        all_permutations += permutations
         number += 1
 
     return cube
 
 
 def answer():
-    return solver(3)
+    return solver(5)
 
 
 if __name__ == '__main__':
-    # print(f'answer() = {answer()}')
-    find_permutations('41063625', 0, [])
+    print(f'answer() = {answer()}')
+    # find_permutations(list('41063625'), 0, [])
+    # print(find_permutations('41063625', 0, []))
