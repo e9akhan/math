@@ -5,7 +5,7 @@
 
 def find_permutations(number, idx, permutation_list):
     """
-        Find permutations.
+    Find permutations.
     """
     if idx == len(number) - 1:
         num = int("".join(number))
@@ -24,7 +24,7 @@ def find_permutations(number, idx, permutation_list):
 
 def solver(n):
     """
-        solver(n).
+    solver(n).
     """
     all_permutations = []
     number = 1
@@ -55,7 +55,7 @@ def solver(n):
 
 def answer():
     """
-        answer().
+    answer().
     """
     return solver(5)
 

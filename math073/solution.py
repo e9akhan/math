@@ -22,7 +22,7 @@ def solver(div):
 
             fractions.append(f"{n}/{d}")
 
-    fractions = sorted(fractions, key=lambda x: exec(x))
+    fractions = sorted(fractions, key=lambda x: eval(x))
     idx1 = fractions.index("1/3")
     idx2 = fractions.index("1/2")
     return idx2 - idx1 - 1

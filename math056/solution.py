@@ -2,6 +2,7 @@
     Math 56
 """
 
+
 def power(a, b):
     """
     Find powers.

@@ -5,7 +5,7 @@
 
 def is_prime(n):
     """
-        Check whether number is prime or not.
+    Check whether number is prime or not.
     """
     if n < 2:
         return False
@@ -19,7 +19,7 @@ def is_prime(n):
 
 def solver(percent):
     """
-        solver
+    solver
     """
     n = 3
     diagonals = [1]

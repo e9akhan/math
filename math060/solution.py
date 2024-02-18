@@ -8,7 +8,7 @@ from itertools import combinations
 
 def is_prime(num):
     """
-        Check whether number is prime or not.
+    Check whether number is prime or not.
     """
     num = int(num)
     if num < 2:
@@ -23,7 +23,7 @@ def is_prime(num):
 
 def is_concatenated_prime(num1, num2):
     """
-        Is concatenated string prime or not.
+    Is concatenated string prime or not.
     """
     concat1 = is_prime(str(num1) + str(num2))
     concat2 = is_prime(str(num2) + str(num1))
@@ -33,7 +33,7 @@ def is_concatenated_prime(num1, num2):
 
 def solver(n):
     """
-        solver().
+    solver().
     """
     prime_list = [num for num in range(2, 1000) if is_prime(num)]
     n_prime_combinations = []
@@ -54,7 +54,7 @@ def solver(n):
 
 def answer():
     """
-        answer().
+    answer().
     """
     return solver(4)
 

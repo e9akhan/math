@@ -5,23 +5,20 @@
 
 def factorial(n):
     """
-        Factorial.
+    Factorial.
     """
     fact = 1
 
-    for i in range(2, n+1):
+    for i in range(2, n + 1):
         fact *= i
     return fact
 
 
 def solver(n, key):
     """
-        solver(n, key).
+    solver(n, key).
     """
-    factorials = {
-        str(i): factorial(i)
-        for i in range(10)
-    }
+    factorials = {str(i): factorial(i) for i in range(10)}
 
     fact_chain = {}
 
@@ -40,18 +37,19 @@ def solver(n, key):
 
             fact_list.append(val)
             num = val
-        
+
         length = len(fact_list)
         fact_chain[length] = fact_chain.get(length, []) + [i]
 
     return len(fact_chain[key])
 
+
 def answer():
     """
-        answer().
+    answer().
     """
     return solver(1000000, 60)
 
 
-if __name__ == '__main__':
-    print(f'answer() = {answer()}')
+if __name__ == "__main__":
+    print(f"answer() = {answer()}")
