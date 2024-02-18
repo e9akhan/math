@@ -1,17 +1,30 @@
+"""
+    Math 60
+"""
+
+
 from itertools import combinations
 
+
 def is_prime(num):
+    """
+        Check whether number is prime or not.
+    """
     num = int(num)
     if num < 2:
         return False
-    
-    for i in range(2, int(num ** 0.5) + 1):
+
+    for i in range(2, int(num**0.5) + 1):
         if num % i == 0:
             return False
-        
+
     return True
 
+
 def is_concatenated_prime(num1, num2):
+    """
+        Is concatenated string prime or not.
+    """
     concat1 = is_prime(str(num1) + str(num2))
     concat2 = is_prime(str(num2) + str(num1))
 
@@ -19,6 +32,9 @@ def is_concatenated_prime(num1, num2):
 
 
 def solver(n):
+    """
+        solver().
+    """
     prime_list = [num for num in range(2, 1000) if is_prime(num)]
     n_prime_combinations = []
 
@@ -36,6 +52,12 @@ def solver(n):
     return sum(n_prime_combinations) if n_prime_combinations else 0
 
 
-if __name__ == '__main__':
-    print(f'{solver(4)}')
+def answer():
+    """
+        answer().
+    """
+    return solver(4)
 
+
+if __name__ == "__main__":
+    print(f"answer() = {answer()}")

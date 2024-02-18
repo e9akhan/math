@@ -5,7 +5,7 @@
 
 def solver():
     """
-        Find lychrel numbers below 10001.
+    Find lychrel numbers below 10001.
     """
     lychrel_numbers = []
     for i in range(1, 10001):
@@ -26,11 +26,13 @@ def solver():
 
     return len(lychrel_numbers)
 
+
 def answer():
     """
-        answer()
+    answer()
     """
     return solver()
 
-if __name__ == '__main__':
-    print(f'answer() = {answer()}')
+
+if __name__ == "__main__":
+    print(f"answer() = {answer()}")

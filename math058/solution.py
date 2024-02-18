@@ -4,26 +4,29 @@
 
 
 def is_prime(n):
+    """
+        Check whether number is prime or not.
+    """
     if n < 2:
         return False
-    
-    for i in range(2, int(n**0.5)+1):
+
+    for i in range(2, int(n**0.5) + 1):
         if n % i == 0:
             return False
-        
-    return True
 
-    return matrix
+    return True
 
 
 def solver(percent):
+    """
+        solver
+    """
     n = 3
     diagonals = [1]
     count = 0
 
     while True:
-
-        mid = n//2
+        mid = n // 2
 
         for _ in range(4):
             ele = diagonals[-1] + 2 * mid
@@ -32,7 +35,7 @@ def solver(percent):
             if is_prime(ele):
                 count += 1
 
-        if ((count/len(diagonals))*100) < percent:
+        if ((count / len(diagonals)) * 100) < percent:
             break
 
         n += 2
@@ -42,9 +45,10 @@ def solver(percent):
 
 def answer():
     """
-        answer().
+    answer().
     """
     return solver(10)
 
-if __name__ == '__main__':
-    print(f'answer() = {answer()}')
+
+if __name__ == "__main__":
+    print(f"answer() = {answer()}")

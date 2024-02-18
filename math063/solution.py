@@ -5,13 +5,13 @@
 
 def solver():
     """
-        solver()
+    solver()
     """
     count = 0
 
     for i in range(1, 22):
         for j in range(1, 22):
-            val = i ** j
+            val = i**j
 
             if len(str(val)) == j:
                 count += 1
@@ -19,10 +19,10 @@ def solver():
 
 def answer():
     """
-        answer()
+    answer()
     """
     return solver()
 
 
-if __name__ == '__main__':
-    print(f'answer() = {answer()}')
+if __name__ == "__main__":
+    print(f"answer() = {answer()}")

@@ -1,4 +1,4 @@
-# Math 63
+# Math 62
 
 ## Cubic Permutations
 

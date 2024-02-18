@@ -1,12 +1,16 @@
+"""
+    Math 56
+"""
+
 def power(a, b):
     """
-        Find powers.
+    Find powers.
     """
     prod = str(a)
 
-    for _ in range(b-1):
+    for _ in range(b - 1):
         prod_rev = prod[::-1]
-        prod = ''
+        prod = ""
         carry = 0
 
         for digit in prod_rev:
@@ -19,9 +23,10 @@ def power(a, b):
 
     return prod
 
+
 def solver(n):
     """
-        Find prod having maximum sum of its digit of powers from 1, n.
+    Find prod having maximum sum of its digit of powers from 1, n.
     """
     summation = []
     for a in range(1, n):
@@ -35,10 +40,10 @@ def solver(n):
 
 def answer():
     """
-        Find prod having maximum sum of its digit of powers from 1, 99.
+    Find prod having maximum sum of its digit of powers from 1, 99.
     """
     return solver(100)
 
 
-if __name__ == '__main__':
-    print(f'answer() = {answer()}')
+if __name__ == "__main__":
+    print(f"answer() = {answer()}")
