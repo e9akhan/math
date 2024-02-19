@@ -10,11 +10,11 @@ def decrypt_message():
     dic = {}
     key = f"{ord('g')}{ord('o')}{ord('d')}"
 
-    # for i in range(3):
-    #     for ch in cipher[i]:
-    #         dic[ch] = dic.get(ch, 0) + 1
-    #     common_ch = sorted(dic.items(), key = lambda x: x[1], reverse=True)[0][0]
-    #     key = "".join((key, str(int(common_ch) ^ 32)))
+    for i in range(3):
+        for ch in cipher[i]:
+            dic[ch] = dic.get(ch, 0) + 1
+        common_ch = sorted(dic.items(), key = lambda x: x[1], reverse=True)[0][0]
+        key = "".join((key, str(int(common_ch) ^ 32)))
 
     for i in range(len(text)):
         result_byte = int(text[i]) ^ int(key[i % len(key)])
