@@ -30,7 +30,6 @@ def solver(n):
     number = 1
     while True:
         cube = number**3
-        print(number)
 
         if cube in all_permutations:
             number += 1
